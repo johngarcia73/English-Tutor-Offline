@@ -100,7 +100,7 @@ class Menu:
         if self.back_action:
             print("  [B] Go Back")
         
-        print("  [Q] Quit Application")
+        print("  [Q] Quit")
         print("\n" + "-" * 60)
     
     def get_user_choice(self) -> Optional[str]:

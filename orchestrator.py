@@ -388,9 +388,10 @@ class ApplicationOrchestrator:
         """Show options menu."""
         menu = Menu("Options", "Configuration Settings")
         menu.add_option("1", "Change LLM Model", self._change_llm_model)
-        menu.add_option("2", "Download New Model", self._download_model)
-        menu.add_option("3", "Change Voice & Language", self._change_voice)
-        menu.add_option("4", "View Configuration", self._view_config)
+        menu.add_option("2", "Run Ollama", self._ensure_ollama_running)
+        menu.add_option("3", "Download New Model", self._download_model)
+        menu.add_option("4", "Change Voice & Language", self._change_voice)
+        menu.add_option("5", "View Configuration", self._view_config)
         menu.run()
     
     def _change_llm_model(self) -> None:
