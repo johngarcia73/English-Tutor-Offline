@@ -468,17 +468,6 @@ What did you do at school?
 
 The response will be spoken aloud through Piper.
 
-## Future Improvements
-
-- Voice activity detection (VAD)
-- Automatic silence detection
-- Conversation memory
-- Vocabulary training mode
-- Pronunciation assessment
-- IELTS/TOEFL practice modes
-- Streaming transcription
-- Streaming speech synthesis
-
 ## License
 
 This project combines several open-source projects:

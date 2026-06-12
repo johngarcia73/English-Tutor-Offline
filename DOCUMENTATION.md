@@ -342,7 +342,6 @@ def main():
 
 - Catches import errors and provides helpful messages
 - Logs all exceptions to `data/tutor.log`
-- Ensures clean exit codes
 
 ---
 
@@ -699,7 +698,6 @@ def ask_llm(user_text: str, history=None) -> str:
 ```
 You are an English tutor.
 Speak only English.
-Correct grammar mistakes.
 Keep responses short.
 Ask a follow-up question.
 ```
@@ -1055,8 +1053,9 @@ A: Yes, with modifications to use native audio tools instead of arecord/ffplay.
 
 ## Changelog
 
-### Version 1.0.0
+### Version 1.1.0
 
+- Documentation updated
 - Initial release
 - Full CLI menu system
 - Multi-language support
@@ -1067,5 +1066,5 @@ A: Yes, with modifications to use native audio tools instead of arecord/ffplay.
 
 ---
 
-_Last Updated: 2024_
-_Documentation Version: 1.0_
+_Last Updated: 2026_
+_Documentation Version: 1.1_
