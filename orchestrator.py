@@ -332,7 +332,8 @@ class ApplicationOrchestrator:
                     print("  🤖 Thinking...")
                     llm_response = ask_llm(
                         user_text,
-                        history=self.conversation.get_history()
+                        history=self.conversation.get_history(),
+                        system_prompt=config.system_prompt
                     )
                     print(f"  Tutor: {llm_response}")
                 except Exception as e:
@@ -391,7 +392,8 @@ class ApplicationOrchestrator:
         menu.add_option("2", "Run Ollama", self._ensure_ollama_running)
         menu.add_option("3", "Download New Model", self._download_model)
         menu.add_option("4", "Change Voice & Language", self._change_voice)
-        menu.add_option("5", "View Configuration", self._view_config)
+        menu.add_option("5", "Change System Prompt", self._change_system_prompt)
+        menu.add_option("6", "View Configuration", self._view_config)
         menu.run()
     
     def _change_llm_model(self) -> None:
@@ -420,6 +422,19 @@ class ApplicationOrchestrator:
         except ValueError:
             CLIHelper.print_error("Invalid input.")
     
+    def _change_system_prompt(self):
+        "Change the System Prompt"
+
+        try:
+            CLIHelper.print_section("Change System Prompt")
+
+            prompt = input("Type the new system prompt:")
+            CLIHelper.print_success(f"New prompt entablished")
+            self.config_manager.set_system_prompt(prompt)
+
+        except ValueError:
+            CLIHelper.print_error("Invalid input.")
+
     def _download_model(self) -> None:
         """Download a new model."""
         CLIHelper.print_section("Download Model")
@@ -521,6 +536,8 @@ class ApplicationOrchestrator:
         print(f"  Voice: {config.tts_voice.language_code} - {config.tts_voice.voice_name}")
         print(f"  STT Language: {config.stt_language.language_code}")
         print(f"  Record Duration: {config.record_seconds} seconds")
+        print(f"  System Prompt: {config.system_prompt}")
+        
         
         print("\n  Ollama Status:")
         if self.model_manager.is_ollama_running():

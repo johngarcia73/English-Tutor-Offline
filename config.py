@@ -47,6 +47,7 @@ class AppConfig:
     tts_voice: TTSVoiceConfig = None
     stt_language: STTModelConfig = None
     record_seconds: int = 5
+    system_prompt: str = ""
     
     def __post_init__(self):
         """Initialize default configs if not provided."""
@@ -73,7 +74,8 @@ class ConfigManager:
     - Validate configuration integrity
     - Ensure safe type conversions
     """
-    
+    SYSTEM_PROMPT = "You are a language professor."
+
     CONFIG_FILE = Path("data/config.json")
     
     # Available voices and their paths
@@ -151,7 +153,8 @@ class ConfigManager:
                 llm_model=data.get("llm_model", "llama3.1:latest"),
                 tts_voice=tts_voice,
                 stt_language=stt_language,
-                record_seconds=data.get("record_seconds", 5)
+                record_seconds=data.get("record_seconds", 5),
+                system_prompt=data.get("system_prompt", self.SYSTEM_PROMPT)
             )
         except Exception as e:
             logger.error(f"Error converting config dict: {e}. Using defaults.")
@@ -178,6 +181,7 @@ class ConfigManager:
                     "model_name": self.config.stt_language.model_name,
                 },
                 "record_seconds": self.config.record_seconds,
+                "system_prompt": self.config.system_prompt
             }
             
             with open(self.CONFIG_FILE, 'w') as f:
@@ -196,6 +200,17 @@ class ConfigManager:
         """
         return self.config
     
+    def set_system_prompt(self, system_prompt: str)-> None:
+        """
+        Set the system prompt for the LLM to use.
+        
+        Args:
+            system_prompt: Text to use as prompt. (e.g., "You are an English teacher.")  
+        """
+        self.config.system_prompt = system_prompt
+        self.save()
+        logger.info(f"System prompt set to: \"{system_prompt}\".")
+
     def set_llm_model(self, model_name: str) -> None:
         """
         Set the LLM model to use.

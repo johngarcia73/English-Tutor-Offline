@@ -8,8 +8,8 @@ Keep responses short.
 Ask a follow-up question.
 """
 
-def ask_llm(user_text: str, history=None) -> str:
-    messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+def ask_llm(user_text: str, history=None, system_prompt=SYSTEM_PROMPT) -> str:
+    messages = [{"role": "system", "content": system_prompt}]
 
     if history:
         messages += history
