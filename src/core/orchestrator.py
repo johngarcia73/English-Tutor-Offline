@@ -19,13 +19,13 @@ from pathlib import Path
 from typing import List, Optional, Tuple
 from dataclasses import dataclass
 
-from config import ConfigManager, AppConfig
-from model_manager import ModelManager
-from cli import Menu, CLIHelper
-from stt import transcribe as transcribe_audio, STTError
-from chat import ask_llm
-from tts import speak as synthesize_speech, TTSError
-from llm_server import (
+from src.config.config import ConfigManager, AppConfig
+from src.llm.model_manager import ModelManager
+from src.cli.cli import Menu, CLIHelper
+from src.transcribe.stt import transcribe as transcribe_audio, STTError
+from src.llm.chat import ask_llm
+from src.audio.tts import speak as synthesize_speech, TTSError
+from src.llm.llm_server import (
     run_ollama, get_ollama_client, ollama_llms_available,
     download_model, check_ollama_server, get_response_text
 )

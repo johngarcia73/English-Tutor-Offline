@@ -49,7 +49,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 try:
-    from orchestrator import orchest
+    from src.core.orchestrator import orchest
     
     def main():
         """Main application entry point."""

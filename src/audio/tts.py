@@ -19,7 +19,7 @@ from dataclasses import dataclass
 
 logger = logging.getLogger(__name__)
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 PYTHON_BIN = ROOT_DIR / "venv/bin/python"
 
 

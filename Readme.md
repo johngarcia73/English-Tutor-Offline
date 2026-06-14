@@ -1,8 +1,8 @@
 # English Tutor Offline
 
-An offline-first conversational English tutor powered by local AI models with a user-friendly CLI interface.
+An offline conversational language tutor powered by local AI models with a user-friendly CLI interface.
 
-The application allows you to practice spoken English directly from your microphone. Your speech is transcribed locally, sent to a local language model for conversation and corrections, and the response is synthesized back into speech.
+The application allows you to practice spoken languages (english and german by default) directly from your microphone. Your speech is transcribed locally, sent to a local language model for conversation and corrections, and the response is synthesized back into speech.
 
 ## 🎯 Features
 

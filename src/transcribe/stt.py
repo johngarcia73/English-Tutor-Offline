@@ -17,7 +17,7 @@ from typing import Optional
 
 logger = logging.getLogger(__name__)
 
-ROOT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 WHISPER_CLI = ROOT_DIR / "whisper.cpp/build/bin/whisper-cli"
 WHISPER_MODELS_DIR = ROOT_DIR / "whisper.cpp/models"
 LIB_WHISPER_DIR = ROOT_DIR / "whisper.cpp/build/src"
